@@ -45,6 +45,9 @@ INSERT INTO Usuario (usuarioId, tipoUsuario, nome, sobrenome, telefone, dataNasc
 -- Professores (7)
 (1, 'professor', 'Mirela', 'Cazzolato', '16991110001', '1980-05-15',  '100', NULL, '04224-010', 'F', 'mirela.c@escola.edu', 'senha123', 'Bancos de Dados', 'Doutorado', 1),
 (101, 'professor', 'Roudinei','Goularte', '10110210001', '1972-03-28', '45', 'Apto 6', '32454-024','M', 'rudinei.g@rudimol.edu', 'noglobalvar', 'Processamento de Imagens', 'Doutorado', 1),
+(102, 'professor', 'Tatiane', 'Moura', '76785123001', '1985-11-12', '55', NULL, '76785-123', 'F', 'tatiane.moura@estat.edu', 'sigma>123', 'Estatística Aplicada', 'Doutorado', 1),
+(103, 'professor', 'Fernando', 'Tavares', '45632177111', '1979-06-08', '301', 'Bloco C', '45632-177', 'M', 'fernando.tavares@enf.edu', 'enfermagem++', 'Cuidados Intensivos', 'Mestrado', 1),
+(104, 'professor', 'Juliana', 'Andrade', '70390100122', '1988-02-17', '1200', NULL, '70390-100', 'F', 'juliana.andrade@fismed.edu', 'fisika#42', 'Física Médica Nuclear', 'Doutorado', 1),
 (2, 'professor', 'Leonardo', 'Campos', '16991110002', '1990-08-20',  '200', 'Apto 10', '04425-050', 'M', 'leo.campos@escola.edu', '12343221', 'Inteligência Artificial', 'Mestrado', 1),
 (3, 'professor', 'Alan', 'Turing', '11992220003', '1952-06-23',  '300', NULL, '04598-035', 'M', 'alan.turing@escola.edu', 'alopio', 'Teoria da Computação', 'Doutorado', 2),
 (4, 'professor', 'Ada', 'Lovelace', '11992220004', '1975-12-10',  '400', 'Sala B', '32454-024', 'F', 'ada.lovelace@escola.edu', 'senha123', 'Algoritmos', 'Doutorado', 2),
@@ -97,11 +100,14 @@ INSERT INTO Departamento (codigoDpt, nomeDpt, profId) VALUES
 -- codigoDpt é FK para Departamento.codigoDpt
 -- -----------------------------------------------------
 INSERT INTO Curso (codigoCurso, nome, nivelEnsino, cargaHoraria, numVagas, ementa, salaPadrao, codigoDpt) VALUES
-('BCC', 'Bacharelado em Ciência da Computação', 'Graduação', 3200, 50, 'Formação de profissionais em computação...', 'Sala 501', 'DCC'),
+('BCC', 'Bacharelado em Ciência da Computação', 'Graduação', 3200, 50, 'Formação de cientistas decomputação...', 'Sala 501', 'DCC'),
 ('BSI', 'Bacharelado em Sistemas de Informação', 'Graduação', 2800, 50, 'Formação de profissionais em computação...', 'Sala 403', 'DCC'),
-('Estat', 'Bacharelado em Estatística', 'Graduação', 2800, 40, 'Estudo de métodos de coleta, análise e interpretação de dados...', 'Sala 302', 'DME'),
+('Estat', 'Tecnico em Estatística', 'Técnico', 2800, 40, 'Estudo de métodos de coleta, análise e interpretação de dados...', 'Sala 302', 'DME'),
+('Mat', 'Bacharelado em Matemática Pura', 'Graduação', 2800, 40, 'Estudo de matemática em nível avançado...', 'Sala 302', 'DME'),
 ('FisMed', 'Bacharelado em Física Médica', 'Graduação', 3000, 30, 'Aplicação de conceitos da física na medicina...', 'Sala 101-A', 'DF'),
+('Fisica', 'Bacharelado em Física', 'Graduação', 3000, 30, 'Aplicação pratica dos conceitos físicos...', 'Sala 204-A', 'DF'),
 ('Med', 'Bacharelado em Medicina ', 'Graduação', 4000, 30, 'Formar médicos com sólida base técnico-científica, senso ético e responsabilidade social...','Sala A','DA'),
+('Enf', 'Bacharelado em enfermagem ', 'Graduação', 4000, 30, 'Formar enfermeiros com sólida base técnica, senso ético e responsabilidade social...','Sala B','DA'),
 ('GeoComp','Geografia computacional', 'Técnico', 2000, 12, 'Aplicação de conhecimentos geográficos e técnicas computacionais para a análise, modelagem e visualização de fenômenos espaciais...','Sala 2-B','DCH' );
 
 -- -----------------------------------------------------
@@ -111,6 +117,12 @@ INSERT INTO Curso (codigoCurso, nome, nivelEnsino, cargaHoraria, numVagas, ement
 INSERT INTO CursoRegras (codigoCurso, regra) VALUES
 ('BCC', 'Frequência mínima obrigatória de 75% em todas as disciplinas.'),
 ('BCC', 'Aprovação com média final maior ou igual a 5.0.'),
+('BSI', 'Aprovação com média final maior ou igual a 5.0.'),
+('FisMed', 'Aprovação com média final maior ou igual a 5.0.'),
+('Mat', 'Aprovação com média final maior ou igual a 6.0.'),
+('Fisica', 'Aprovação com média final maior ou igual a 5.0.'),
+('Med', 'Aprovação com média final maior ou igual a 7.0.'),
+('Enf', 'Aprovação com média final maior ou igual a 7.0.'),
 ('Estat', 'Frequência mínima obrigatória de 70%.'),
 ('Med', 'Proibido inscrição em estágios remunerados'),
 ('FisMed', 'Uso obrigatório de jaleco nos laboratórios.');
@@ -130,12 +142,25 @@ INSERT INTO CursoNecessidades(codigoCurso, necessidadeInfra) VALUES
 -- -----------------------------------------------------
 INSERT INTO Disciplina (nomeDisciplina, numAulasSemanais, materialDidatico, codigoCurso) VALUES
 ('Bases de Dados', 4, 'Livro: Sistemas de Banco de Dados, Elmasri & Navathe', 'BCC'),
-('Algoritmos Avançados', 4, 'Livro: Introduction to Algorithms, CLRS', 'BCC'),
-('Multimidia', 101, 'Livro: Introduction to Algorithms, CLRS', 'BSI'),
-('Cálculo I', 6, 'Livro: Cálculo, Volume 1, James Stewart', 'Estat'),
-('Mecânica Clássica', 4, 'Livro: Curso de Física Básica, Moysés Nussenzveig', 'FisMed'),
+('Algoritmos computacionais', 4, 'Livro: Introduction to Algorithms, CLRS', 'BCC'),
+('Multimidia', 2, 'Livro: Multimedia in the computer, CIPC', 'BSI'),
+('Cálculo I', 6, 'Livro: Cálculo, Volume 1, James Stewart', 'Mat'),
+('Mecânica Clássica', 4, 'Livro: Curso de Física Básica, Moysés Nussenzveig', 'Fisica'),
 ('Relevo', 1,'Livro: Análise extendida de Relevo Geográfico, Ana Mikaski','GeoComp'),
-('Citologia I', 3, 'Livro: Biologia celular e molecular, José Carneiro', 'Med');
+('Citologia I', 3, 'Livro: Biologia celular e molecular, José Carneiro', 'Med'),
+('Algoritmos Avançados', 4, 'Livro: Understanding complex Algorithms, CLRS', 'BCC'),
+('Processamento de Imagens', 2, 'Livro: Image Processing, CIPC', 'BSI'),
+('Inteligencia artificial', 4, 'Livro: Introdução a Inteligencia Artificial, CLRS', 'BCC'),
+('Cálculo II', 6, 'Livro: Cálculo Integral I, James baxter', 'Mat'),
+('Probabilidade',3,'Livro: Análise probabilistica, Eduardo Euler', 'Estat'),
+('Comportamento Biomolecular' ,3, 'Livro: Introdução a Física Básica, Marcos P.', 'FisMed' ),
+('Dinâmica', 4, 'Livro: Curso de Física Básica, Moysés Nussenzveig', 'Fisica'),
+('Geopolitica', 1,'Livro: Estudo sobre Geopolitica, Ana Mikaski','GeoComp'),
+('Cirurgia I', 3, 'Livro: Manual Cirúrgico, André Cointra', 'Med'),
+('Citologia II', 3, 'Livro: Biologia celular e molecular, José Carneiro', 'Med'),
+('Enfermagem I',4 , 'Livro: Manual de Cuidados e Enfermagem, Luísa Cointra', 'Enf'),
+('Probabilidade II', 3,'Livro: Análise probabilistica, Eduardo Euler', 'Estat'),
+('Cuidados Paliativos',2 , 'Livro: Manual de Cuidados e Enfermagem, Luísa Cointra', 'Enf');
 
 
 -- -----------------------------------------------------
@@ -145,12 +170,27 @@ INSERT INTO Disciplina (nomeDisciplina, numAulasSemanais, materialDidatico, codi
 -- -----------------------------------------------------
 INSERT INTO Turma (turmaId, professorId, nomeDisciplina, horarioTurma, dataInicio, dataFim) VALUES
 (1, 1, 'Bases de Dados', '10:00', '2025-02-10', '2025-06-25'),
-(2, 4, 'Algoritmos Avançados', '08:00', '2025-02-11', '2025-06-26'),
+(2, 4, 'Algoritmos computacionais', '08:00', '2025-02-11', '2025-06-26'),
 (101,101, 'Multimidia', '14:00', '2025-02-11', '2025-06-26'),
 (3, 3, 'Cálculo I', '14:00', '2025-02-10', '2025-06-27'),
 (4, 5, 'Mecânica Clássica', '16:00', '2025-02-11', '2025-06-26'),
 (5, 7, 'Relevo', '13:00', '2025-02-12', '2025-06-28'),
-(6, 6, 'Citologia I', '11:00', '2025-02-12', '2025-06-28');
+(6, 6, 'Citologia I', '11:00', '2025-02-12', '2025-06-28'),
+(102, 104, 'Comportamento Biomolecular', '9:00', '2025-02-12', '2025-06-28'),
+(202, 103, 'Enfermagem I', '10:00', '2025-02-12', '2025-06-28'),
+(201, 102, 'Probabilidade', '8:00', '2025-02-12', '2025-06-28'),
+
+
+(8, 4, 'Algoritmos Avançados', '08:00', '2025-07-11', '2025-11-26'),
+(103, 2, 'Inteligencia artificial', '08:00', '2025-07-11', '2025-11-26'),
+(104,101, 'Processamento de Imagens', '14:00', '2025-07-11', '2025-11-26'),
+(105, 6, 'Citologia II', '11:00', '2025-07-12', '2025-11-28'),
+(106, 7, 'Geopolitica', '11:00', '2025-07-12', '2025-11-28'),
+(107, 6, 'Cirurgia I', '9:00', '2025-07-12', '2025-11-28'),
+(9, 3, 'Cálculo II', '14:00', '2025-02-10', '2025-07-11'),
+(203, 102, 'Probabilidade II', '14:00', '2025-02-10', '2025-07-11'),
+(204, 103, 'Cuidados Paliativos', '14:00', '2025-02-10', '2025-07-11'),
+(10, 5, 'Dinâmica', '16:00', '2025-02-11', '2025-07-11');
 
 
 -- -----------------------------------------------------
@@ -178,6 +218,31 @@ INSERT INTO Matricula (usuarioId, turmaId, dataMatricula, status, dataLimite, ta
 (23, 6, '2025-01-26', 'ativa', '2025-02-05', 530.00),
 (24, 6, '2025-01-27', 'ativa', '2025-02-05', 530.00),
 (25, 6, '2025-01-28', 'ativa', '2025-02-05', 530.00);
+
+
+(11, 8, '2025-06-15', 'ativa', '2025-07-10', 600.00),
+(12, 8, '2025-06-15', 'ativa', '2025-07-10', 600.00),
+(15, 8, '2025-06-15', 'ativa', '2025-07-10', 600.00),
+(11, 103, '2025-06-16', 'ativa', '2025-07-10', 650.00),
+(14, 103, '2025-06-16', 'ativa', '2025-07-10', 650.00),
+(16, 103, '2025-06-17', 'trancada', '2025-07-10', 650.00),
+(17, 104, '2025-06-16', 'ativa', '2025-07-10', 600.00),
+(18, 104, '2025-06-17', 'ativa', '2025-07-10', 600.00),
+(25, 105, '2025-06-18', 'ativa', '2025-07-10', 530.00),
+(26, 105, '2025-06-19', 'ativa', '2025-07-10', 530.00),
+(27, 106, '2025-06-18', 'ativa', '2025-07-10', 400.00),
+(28, 106, '2025-06-18', 'ativa', '2025-07-10', 400.00),
+(29, 107, '2025-06-19', 'ativa', '2025-07-10', 550.00),
+(30, 107, '2025-06-19', 'ativa', '2025-07-10', 550.00),
+(23, 9, '2025-06-15', 'ativa', '2025-07-10', 500.00),
+(22, 9, '2025-06-15', 'reprovada', '2025-07-10', 500.00),
+(24, 203, '2025-06-15', 'ativa', '2025-07-10', 500.00),
+(21, 203, '2025-06-16', 'ativa', '2025-07-10', 500.00),
+(19, 204, '2025-06-15', 'ativa', '2025-07-10', 500.00),
+(20, 204, '2025-06-16', 'ativa', '2025-07-10', 500.00);
+
+
+
 
 -- -----------------------------------------------------
 -- 10. Tabelas multivaloradas de Matricula
@@ -224,8 +289,8 @@ INSERT INTO MatriculaNotas (usuarioId, turmaId, nota) VALUES
 INSERT INTO MatriculaBeneficios (usuarioId, turmaId, beneficio) VALUES
 (9, 1, 'Bolsa Mérito Acadêmico - 50%'),
 (13, 3, 'Desconto por Indicação - 10%'),
-(25, 6, 'Bolsa Mérito Acadêmico - 50%');
-(15,2, 'Bolsa Familiar Funcionário - 80%')
+(25, 6, 'Bolsa Mérito Acadêmico - 50%'),
+(15,2, 'Bolsa Familiar Funcionário - 80%');
 
 -- -----------------------------------------------------
 -- 11. Tabelas Finais (Avaliação, Comunicação)
@@ -244,7 +309,9 @@ INSERT INTO Mensagem (remetenteId, destinatarioId, timestamp, texto) VALUES
 (16, 4, '2025-03-12 10:15:00', 'Obrigada pelo aviso! Vou revisar e reenviar.'),
 (11, 12, '2025-03-22 21:00:00', 'você terminou o exercício de Algoritmos? Estou travado no 4.'),
 (6, 27, '2025-04-02 10:30:00', 'Rafaela, não esqueça de trazer o material do laboratório amanhã.'),
-(27, 6, '2025-04-02 10:45:00', 'Pode deixar, professor! Já está separado.');
+(27, 6, '2025-04-02 10:45:00', 'Pode deixar, professor! Já está separado.'),
+(1, 23, '2025-04-05 13:50:00', 'Nicolas, havia um pendrive com seu nome na sala 203.Deixei coordenação.'),
+(23, 1, '2025-04-05 14:05:00', 'Obrigado, professora! Passo aí mais tarde pra pegar.');
 
 
 -- Tabela Aviso
