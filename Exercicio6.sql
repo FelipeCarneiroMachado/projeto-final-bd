@@ -40,7 +40,8 @@ CREATE TABLE IF NOT EXISTS Unidade (
     Cidade VARCHAR(30),
     Estado VARCHAR(30),
     Pais VARCHAR(30),
-    Bloco VARCHAR(30)
+    Bloco VARCHAR(30),
+    UNIQUE (Cidade, Estado, Pais, Bloco)
 );
 
 CREATE TABLE IF NOT EXISTS CEPs (
@@ -71,7 +72,8 @@ CREATE TABLE IF NOT EXISTS Usuario (
     Titulacao VARCHAR(100),
     UnidadeID INT,
     FOREIGN KEY (UnidadeID) REFERENCES Unidade(UnidadeID),
-    FOREIGN KEY (CEP) REFERENCES CEPs(CEP)
+    FOREIGN KEY (CEP) REFERENCES CEPs(CEP),
+    UNIQUE (Nome, Sobrenome, Telefone)
 );
 
 
@@ -91,7 +93,7 @@ CREATE TABLE IF NOT EXISTS Departamento (
 -- ---------------------------
 CREATE TABLE IF NOT EXISTS Curso (
     CodigoCurso VARCHAR(10) PRIMARY KEY,
-    Nome VARCHAR(100),
+    Nome VARCHAR(100) UNIQUE,
     NivelEnsino VARCHAR(30),
     CargaHoraria INT,
     NumVagas INT,
@@ -104,13 +106,15 @@ CREATE TABLE IF NOT EXISTS Curso (
 CREATE TABLE IF NOT EXISTS CursoRegras (
     CodigoCurso VARCHAR(10),
     Regra TEXT,
-    FOREIGN KEY (CodigoCurso) REFERENCES Curso(CodigoCurso)
+    FOREIGN KEY (CodigoCurso) REFERENCES Curso(CodigoCurso),
+    UNIQUE (CodigoCurso, Regra)
 );
 
 CREATE TABLE IF NOT EXISTS CursoNecessidades (
     CodigoCurso VARCHAR(10),
     NecessidadeInfra TEXT,
-    FOREIGN KEY (CodigoCurso) REFERENCES Curso(CodigoCurso)
+    FOREIGN KEY (CodigoCurso) REFERENCES Curso(CodigoCurso),
+    UNIQUE (CodigoCurso, NecessidadeInfra)
 );
 
 CREATE TABLE IF NOT EXISTS Disciplina (
