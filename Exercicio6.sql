@@ -1,10 +1,4 @@
 -- ==========================================================
--- ENUM
--- ==========================================================
-
-CREATE TYPE TipoUsuario AS ENUM('professor','aluno','administrativo');
-
--- ==========================================================
 -- LIMPEZA DAS TABELAS (DROP em ordem reversa de dependência)
 -- ==========================================================
 DROP TABLE IF EXISTS Avaliacao CASCADE;
@@ -24,9 +18,20 @@ DROP TABLE IF EXISTS Unidade CASCADE;
 DROP TABLE IF EXISTS CEPs CASCADE;
 
 -- ==========================================================
--- CRIAÇÃO DAS TABELAS
+-- LIMPEZA DOS ENUMS
+-- ==========================================================
+DROP TYPE IF EXISTS TipoUsuario CASCADE;
+
+
+-- ==========================================================
+-- ENUM
 -- ==========================================================
 
+CREATE TYPE TipoUsuario AS ENUM('professor','aluno','administrativo');
+
+-- ==========================================================
+-- CRIAÇÃO DAS TABELAS
+-- ==========================================================
 -- ---------------------------
 -- Localização e Estrutura
 -- ---------------------------
