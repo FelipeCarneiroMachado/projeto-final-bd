@@ -2,7 +2,7 @@
 -- ENUM
 -- ==========================================================
 
---CREATE TYPE TipoUsuario AS ENUM('professor','aluno','administrativo');
+CREATE TYPE TipoUsuario AS ENUM('professor','aluno','administrativo');
 
 -- ==========================================================
 -- LIMPEZA DAS TABELAS (DROP em ordem reversa de dependência)

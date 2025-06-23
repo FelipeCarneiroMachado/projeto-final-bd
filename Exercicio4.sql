@@ -46,11 +46,11 @@ INSERT INTO Usuario (usuarioId, tipoUsuario, nome, sobrenome, telefone, dataNasc
 (1, 'professor', 'Mirela', 'Cazzolato', '16991110001', '1980-05-15',  '100', NULL, '04224-010', 'F', 'mirela.c@escola.edu', 'senha123', 'Bancos de Dados', 'Doutorado', 1),
 (101, 'professor', 'Roudinei','Goularte', '10110210001', '1972-03-28', '45', 'Apto 6', '32454-024','M', 'rudinei.g@rudimol.edu', 'noglobalvar', 'Processamento de Imagens', 'Doutorado', 1),
 (2, 'professor', 'Leonardo', 'Campos', '16991110002', '1990-08-20',  '200', 'Apto 10', '04425-050', 'M', 'leo.campos@escola.edu', '12343221', 'Inteligência Artificial', 'Mestrado', 1),
-(3, 'professor', 'Alan', 'Turing', '11992220003', '1912-06-23',  '300', NULL, '04598-035', 'M', 'alan.turing@escola.edu', 'alopio', 'Teoria da Computação', 'Doutorado', 2),
-(4, 'professor', 'Ada', 'Lovelace', '11992220004', '1815-12-10',  '400', 'Sala B', '32454-024', 'F', 'ada.lovelace@escola.edu', 'senha123', 'Algoritmos', 'Doutorado', 2),
-(5, 'professor', 'Isaac', 'Newton', '16993330005', '1643-01-04',  '500', NULL, '45632-177', 'M', 'isaac.newton@escola.edu', 'senha123', 'Física Clássica', 'Doutorado', 2),
-(6, 'professor', 'Carlinhos', 'Brown', '22993330005', '1643-01-04',  '500', NULL, '70390-100', 'M', 'CBrown@escola.edu', 'x0x0ilvu', 'Cardiologia Aplicada', 'Doutorado', 3),
-(7, 'professor', 'Isadora', 'Bachet', '71993330005', '1643-01-04',  '500', 'Ap 24', '13561-090', 'F', 'isadora.Bachet@escola.edu', '1317LB<3', 'Geopolitica Moderna', 'Mestrado', 4),
+(3, 'professor', 'Alan', 'Turing', '11992220003', '1952-06-23',  '300', NULL, '04598-035', 'M', 'alan.turing@escola.edu', 'alopio', 'Teoria da Computação', 'Doutorado', 2),
+(4, 'professor', 'Ada', 'Lovelace', '11992220004', '1975-12-10',  '400', 'Sala B', '32454-024', 'F', 'ada.lovelace@escola.edu', 'senha123', 'Algoritmos', 'Doutorado', 2),
+(5, 'professor', 'Isaac', 'Newton', '16993330005', '1963-01-04',  '500', NULL, '45632-177', 'M', 'isaac.newton@escola.edu', 'senha123', 'Física Clássica', 'Doutorado', 2),
+(6, 'professor', 'Carlinhos', 'Brown', '22993330005', '1962-01-04',  '500', NULL, '70390-100', 'M', 'CBrown@escola.edu', 'x0x0ilvu', 'Cardiologia Aplicada', 'Doutorado', 3),
+(7, 'professor', 'Isadora', 'Bachet', '71993330005', '1989-01-04',  '500', 'Ap 24', '13561-090', 'F', 'isadora.Bachet@escola.edu', '1317LB<3', 'Geopolitica Moderna', 'Mestrado', 4),
 /*Funcionarios administrativos(3)*/
 (8, 'administrativo', 'Carlos', 'Rocha', '16991110006', '1985-02-10', '600', 'Piso 1', '13561-090', 'M', 'carlos.adm@escola.edu', 'senha123', NULL, NULL, 1),
 (9, 'administrativo', 'Beatriz', 'Sedrie', '11992220007', '1992-11-30', '700', NULL, '04224-010', 'F', 'bia.sec@escola.edu', 'senha123', NULL, NULL, 2),
@@ -65,7 +65,7 @@ INSERT INTO Usuario (usuarioId, tipoUsuario, nome, sobrenome, telefone, dataNasc
 (17, 'aluno', 'Gabriel', 'Oliveira', '11997770015', '2001-12-15', '1103', NULL, '12312-123', 'M', 'gabriel.o@aluno.edu', 'senha123', NULL, NULL, 1),
 (18, 'aluno', 'Helena', 'Ribeiro', '16996660016', '2003-11-20', '1302', NULL, '04224-010', 'F', 'helena.r@aluno.edu', 'senha123', NULL, NULL, 2),
 (19, 'aluno', 'Lazaro', 'Vinaud', '16998880017', '2002-08-14',  '904', 'Apto 3', '04425-050', 'M', 'igor.m@aluno.edu', 'senha123', NULL, NULL, 2),
-(20, 'aluno', 'Juliana', 'Santos', '11997770018', '2003-06-05', '1104', 'Bloco C', '04598-035', 'F', 'juliana.s@aluno.edu', 'senha123', NULL, NULL, 2),
+(20, 'aluno', 'Juliana', 'Santos', '11997770018', '1973-06-05', '1104', 'Bloco C', '04598-035', 'F', 'juliana.s@aluno.edu', 'senha123', NULL, NULL, 2),
 (21, 'aluno', 'Lucas', 'Gomes', '16996660019', '2004-10-10', '1303', NULL, '32454-024', 'M', 'lucas.g@aluno.edu', 'senha123', NULL, NULL, 2),
 (22, 'aluno', 'Mariana', 'Rodrigues', '16998880020', '2002-04-03', '905', 'Apto 4', '76785-123', 'F', 'mariana.r@aluno.edu', 'senha123', NULL, NULL, 2),
 (23, 'aluno', 'Nicolas', 'Carvalho', '11997770021', '2003-01-07', '1105', NULL, '45632-177', 'M', 'nicolas.c@aluno.edu', 'senha123', NULL, NULL, 2),
@@ -112,6 +112,7 @@ INSERT INTO CursoRegras (codigoCurso, regra) VALUES
 ('BCC', 'Frequência mínima obrigatória de 75% em todas as disciplinas.'),
 ('BCC', 'Aprovação com média final maior ou igual a 5.0.'),
 ('Estat', 'Frequência mínima obrigatória de 70%.'),
+('Med', 'Proibido inscrição em estágios remunerados'),
 ('FisMed', 'Uso obrigatório de jaleco nos laboratórios.');
 
 -- Tabela CursoNecessidades
@@ -164,7 +165,7 @@ INSERT INTO Matricula (usuarioId, turmaId, dataMatricula, status, dataLimite, ta
 (11, 2, '2025-01-15', 'ativa', '2025-02-05', 600.00),
 (12, 2, '2025-01-16', 'ativa', '2025-02-05', 600.00),
 (26, 2, '2025-01-29', 'ativa', '2025-02-05', 600.00),
-(15, 2, '2025-01-17', 'concluída', '2025-02-05', 600.00),
+(15, 2, '2025-01-17', 'concluída', '2025-02-05', 120.00),
 (13, 3, '2025-01-18', 'trancada', '2025-02-05', 480.00),
 (16, 3, '2025-01-19', 'ativa', '2025-02-05', 480.00),
 (27, 3, '2025-01-30', 'ativa', '2025-02-05', 480.00),
@@ -184,17 +185,47 @@ INSERT INTO Matricula (usuarioId, turmaId, dataMatricula, status, dataLimite, ta
 -- Tabela MatriculaNotas
 -- (usuarioId, turmaId) é FK para Matricula
 INSERT INTO MatriculaNotas (usuarioId, turmaId, nota) VALUES
-(15, 2, 8.5), -- Aluno Gabriel em Algoritmos
-(15, 2, 9.0), -- Aluno Gabriel em Algoritmos (P2)
-(19, 4, 3.0), -- Aluno Lucas em Mecânica
-(19, 4, 4.5); -- Aluno Lucas em Mecânica (P2)
+(15, 2, 8.5), 
+(15, 2, 9.0),
+(19, 4, 3.0), 
+(19, 4, 4.5),
+(11, 2, 8.0),
+(11, 2, 9.2),
+(12, 2, 7.5),
+(12, 2, 8.0),
+(26, 2, 6.5),
+(26, 2, 7.0),
+(14, 1, 8.5),
+(14, 1, 8.7),
+(16, 3, 6.0),
+(16, 3, 6.8),
+(27, 3, 7.0),
+(27, 3, 7.2),
+(22, 4, 8.0),
+(22, 4, 7.5),
+(17, 101, 9.0),
+(17, 101, 9.5),
+(18, 101, 8.8),
+(18, 101, 9.1),
+(20, 5, 7.5),
+(20, 5, 7.8),
+(21, 5, 8.0),
+(21, 5, 8.4),
+(23, 6, 6.0),
+(23, 6, 6.5),
+(24, 6, 9.0),
+(24, 6, 9.5),
+(25, 6, 7.8),
+(25, 6, 8.0);
+
 
 -- Tabela MatriculaBeneficios
 -- (usuarioId, turmaId) é FK para Matricula
 INSERT INTO MatriculaBeneficios (usuarioId, turmaId, beneficio) VALUES
 (9, 1, 'Bolsa Mérito Acadêmico - 50%'),
-(13, 3, 'Desconto por Indicação - 10%');
-
+(13, 3, 'Desconto por Indicação - 10%'),
+(25, 6, 'Bolsa Mérito Acadêmico - 50%');
+(15,2, 'Bolsa Familiar Funcionário - 80%')
 
 -- -----------------------------------------------------
 -- 11. Tabelas Finais (Avaliação, Comunicação)
@@ -219,4 +250,6 @@ INSERT INTO Mensagem (remetenteId, destinatarioId, timestamp, texto) VALUES
 -- Tabela Aviso
 INSERT INTO Aviso (adminId, timestamp, texto) VALUES
 (8, '2025-06-15 18:00:00', 'Atenção: O prazo para rematrícula para o próximo semestre se encerra em 30/06.'),
-(9, '2025-03-01 08:00:00', 'Lembrete: Feriado na próxima sexta-feira, não haverá expediente nem aulas.');
+(9, '2025-03-01 08:00:00', 'Lembrete: Feriado na próxima sexta-feira, não haverá expediente nem aulas.'),
+(10, '2025-02-04 00:00:00', 'Atenção: Prazo para exclusão da majoridade das disciplinas encerra amanhã' ),
+(9, '2025-03-10 08:00:00', 'Oportunidade: Expedição Gratuita para Usina hidrelétrica no dia 19/03.');

@@ -17,7 +17,8 @@ Order By Count(U.UsuarioID) desc;
 -- ---------------------
 --Consulta 3
 -- ---------------------
---Consulta as matriculas com informação de professor
+
+--Consulta todas as matriculas com informação de professor
 Select T.HorarioTurma, T.NomeDisciplina, U.nome, P.nome as Professor
 from Turma as T, Matricula as M, Usuario as U, Usuario as P
 where M.turmaId = T.TurmaId and M.UsuarioId = U.UsuarioID and T.ProfessorId = P.UsuarioID;
@@ -27,7 +28,7 @@ where M.turmaId = T.TurmaId and M.UsuarioId = U.UsuarioID and T.ProfessorId = P.
 --Consulta 4
 -- ---------------------
 --Consulta quais professores dão aula para algum aluno mais velho que eles
-Select P.Nome from Usuario as P
+Select P.UsuarioId, P.Nome, P.sobrenome from Usuario as P
 where P.DataNascimento > ANY
 	(Select A.DataNascimento from Matricula as M, Usuario as A, Turma as T
 	where T.TurmaID = M.TurmaID and T.ProfessorID = P.UsuarioID and M.UsuarioID = A.UsuarioID);
@@ -50,7 +51,7 @@ Select Usu.usuarioID,Usu.nome, Uni.cidade, Uni.bloco From Usuario as Usu, CEPs a
 --Consulta 7
 -- ---------------------
 --Conta quantas Necessidades de infraestrutura os cursos de um departamento possui
-Select D.CodigoDPT, Count(CN.NecessidadeInfra) as regalias
+Select D.CodigoDPT, Count(CN.NecessidadeInfra)
 	from Departamento D
 	left join Curso C on C.CodigoDPT = D.CodigoDPT
 	left join CursoNecessidades CN on CN.CodigoCurso = C.CodigoCurso
