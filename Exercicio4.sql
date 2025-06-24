@@ -298,7 +298,25 @@ INSERT INTO MatriculaBeneficios (usuarioId, turmaId, beneficio) VALUES
 -- Tabela Avaliacao
 INSERT INTO Avaliacao (alunoId, professorId, nomeDisciplina, comentario, scoreDidatica, scoreMaterial, scoreRelevancia, scoreInfra) VALUES
 (15, 4, 'Algoritmos Avançados', 'A professora Ada é excelente, muito didática!', 10, 9, 10, 8),
-(10, 1, 'Bases de Dados', 'Gostei muito da disciplina, mas o material poderia ser mais prático.', 9, 7, 10, 9);
+(10, 1, 'Bases de Dados', 'Gostei muito da disciplina, mas o material poderia ser mais prático.', 9, 7, 10, 9),
+(12, 4, 'Algoritmos computacionais', 'Boa aula, mas as explicações poderiam ser mais pausadas.', 7, 8, 9, 7),
+(13, 101, 'Multimidia', 'Achei o conteúdo leve e interessante.', 8, 9, 8, 8),
+(14, 3, 'Cálculo I', 'Matéria densa, mas bem conduzida.', 9, 8, 9, 7),
+(16, 3, 'Cálculo I', 'Dificuldade de acompanhar devido ao ritmo acelerado.', 6, 7, 7, 6),
+(17, 101, 'Multimidia', 'Didática excelente! Muito conteúdo prático.', 10, 10, 10, 9),
+(18, 6, 'Citologia I', 'Aulas interativas e com bons exemplos.', 9, 9, 9, 9),
+(19, 5, 'Mecânica Clássica', 'Professor domina o conteúdo, mas usa pouca lousa.', 8, 7, 8, 8),
+(20, 7, 'Relevo', 'A disciplina é interessante, mas o tempo é curto.', 7, 7, 8, 6),
+(21, 7, 'Relevo', 'Faltou aprofundar mais o conteúdo.', 6, 6, 7, 6),
+(22, 5, 'Mecânica Clássica', 'Muito boa didática e material organizado.', 9, 9, 9, 8),
+(23, 6, 'Citologia I', 'Laboratório sempre em boas condições.', 8, 9, 9, 10),
+(24, 104, 'Comportamento Biomolecular', 'Achei a disciplina difícil, mas importante.', 8, 8, 9, 7),
+(25, 6, 'Citologia II', 'Curso excelente, recomendo.', 9, 9, 10, 10),
+(26, 6, 'Citologia II', 'Um pouco repetitivo em relação à I.', 7, 8, 8, 9),
+(27, 7, 'Geopolitica', 'Conteúdo atual e relevante.', 10, 9, 10, 8),
+(28, 7, 'Geopolitica', 'Boas discussões em sala.', 9, 8, 9, 8),
+(29, 6, 'Cirurgia I', 'Muito prático e bem aplicado.', 10, 9, 10, 10),
+(30, 6, 'Cirurgia I', 'Ótima introdução à prática hospitalar.', 9, 9, 10, 9);
 
 -- Tabela Mensagem
 INSERT INTO Mensagem (remetenteId, destinatarioId, timestamp, texto) VALUES
@@ -311,12 +329,38 @@ INSERT INTO Mensagem (remetenteId, destinatarioId, timestamp, texto) VALUES
 (6, 27, '2025-04-02 10:30:00', 'Rafaela, não esqueça de trazer o material do laboratório amanhã.'),
 (27, 6, '2025-04-02 10:45:00', 'Pode deixar, professor! Já está separado.'),
 (1, 23, '2025-04-05 13:50:00', 'Nicolas, havia um pendrive com seu nome na sala 203.Deixei coordenação.'),
-(23, 1, '2025-04-05 14:05:00', 'Obrigado, professora! Passo aí mais tarde pra pegar.');
+(23, 1, '2025-04-05 14:05:00', 'Obrigado, professora! Passo aí mais tarde pra pegar.'),
+(28, 29, '2025-04-10 16:10:00', 'Tiago, pode me enviar os slides da aula de hoje?'),
+(29, 28, '2025-04-10 16:30:00', 'Claro! Te mando agora no e-mail.'),
+(5, 22, '2025-04-11 12:00:00', 'Juliana, excelente participação na aula hoje. Parabéns!'),
+(22, 5, '2025-04-11 13:20:00', 'Muito obrigada, professor Newton!'),
+(2, 13, '2025-04-15 14:00:00', 'Bruno, seu trabalho foi reprovado por plágio.'),
+(13, 2, '2025-04-15 14:15:00', 'Professor, posso refazer e apresentar novamente?'),
+(101, 14, '2025-04-20 09:00:00', 'Carla, parabéns pela análise no projeto multimídia.'),
+(14, 101, '2025-04-20 10:45:00', 'Muito obrigada! Fico feliz que tenha gostado.'),
+(8, 10, '2025-04-21 08:00:00', 'Reunião da secretaria adiada para 25/04 às 9h.'),
+(10, 8, '2025-04-21 08:10:00', 'Ok! Já atualizei na agenda.');
+
 
 
 -- Tabela Aviso
 INSERT INTO Aviso (adminId, timestamp, texto) VALUES
-(8, '2025-06-15 18:00:00', 'Atenção: O prazo para rematrícula para o próximo semestre se encerra em 30/06.'),
-(9, '2025-03-01 08:00:00', 'Lembrete: Feriado na próxima sexta-feira, não haverá expediente nem aulas.'),
-(10, '2025-02-04 00:00:00', 'Atenção: Prazo para exclusão da majoridade das disciplinas encerra amanhã' ),
-(9, '2025-03-10 08:00:00', 'Oportunidade: Expedição Gratuita para Usina hidrelétrica no dia 19/03.');
+(8, '2025-06-15 18:00:00', 'O prazo para rematrícula para o próximo semestre se encerra em 30/06.'),
+(9, '2025-03-01 08:00:00', 'Feriado na próxima sexta-feira, não haverá expediente nem aulas.'),
+(10, '2025-02-04 00:00:00', 'Prazo para exclusão da majoridade das disciplinas encerra amanhã' ),
+(9, '2025-03-10 08:00:00', 'Oportunidade: Expedição Gratuita para Usina hidrelétrica no dia 19/03.'),
+(8, '2025-06-20 12:00:00', 'O sistema estará em manutenção no dia 22/06 das 00h às 04h.'),
+(9, '2025-05-01 08:00:00', 'Início do período de trancamento de disciplinas.'),
+(9, '2025-05-10 09:00:00', 'Palestra sobre carreira docente no dia 15/05, às 17h.'),
+(10, '2025-05-12 10:00:00', 'Inscrições abertas para o campeonato de xadrez acadêmico.'),
+(8, '2025-05-18 14:00:00', 'Campanha de vacinação no campus central entre 22-26/05.'),
+(10, '2025-05-25 09:00:00', 'Nova política de bolsas será divulgada até o fim do mês.'),
+(8, '2025-06-01 10:00:00', 'Entrega dos relatórios de estágio até 15/06.'),
+(9, '2025-06-05 14:00:00', 'Abertura de inscrições para monitoria do próximo semestre.'),
+(9, '2025-06-10 11:00:00', 'Treinamento para novos bolsistas: 17/06 às 13h.'),
+(10, '2025-06-12 16:00:00', 'Festa junina do campus será no dia 24/06 às 18h.'),
+(8, '2025-06-14 18:00:00', 'Instabilidade no portal do aluno pode ocorrer hoje.'),
+(9, '2025-06-20 08:30:00', 'Recolhimento de livros atrasados até o dia 27/06.'),
+(10, '2025-06-21 10:15:00', 'Mudança na política de avaliação da biblioteca.'),
+(9, '2025-06-22 11:00:00', 'Entrega dos planos de ensino até sexta-feira.'),
+(8, '2025-06-23 13:00:00', 'Semana de Integração será de 01 a 05 de julho.');
