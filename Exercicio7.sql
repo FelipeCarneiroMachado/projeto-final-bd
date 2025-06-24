@@ -20,6 +20,13 @@ DROP INDEX IF EXISTS IdxAvisoTimestamp;
 DROP INDEX IF EXISTS IdxTurmaProfessor;
 
 
+-- Plano de consulta 4 sem índices
+EXPLAIN ANALYZE Select P.UsuarioId, P.Nome, P.sobrenome from Usuario as P
+where P.DataNascimento > ANY
+	(Select A.DataNascimento from Matricula as M, Usuario as A, Turma as T
+	where T.TurmaID = M.TurmaID and T.ProfessorID = P.UsuarioID and M.UsuarioID = A.UsuarioID);
+
+
 -- Otimiza buscas que apenas incluem um tipo usuário, como alunos
 CREATE INDEX IdxTipoUsuario ON Usuario(TipoUsuario);
 -- Otimiza joins com CEPs
@@ -72,3 +79,10 @@ CREATE INDEX IdxAvisoTimestamp ON Aviso(Timestamp);
 
 -- Todas as turma lecionadas por um professor
 CREATE INDEX IdxTurmaProfessor ON Turma(ProfessorID);
+
+
+-- Plano de consulta 4 com índices
+EXPLAIN ANALYZE Select P.UsuarioId, P.Nome, P.sobrenome from Usuario as P
+where P.DataNascimento > ANY
+	(Select A.DataNascimento from Matricula as M, Usuario as A, Turma as T
+	where T.TurmaID = M.TurmaID and T.ProfessorID = P.UsuarioID and M.UsuarioID = A.UsuarioID);
